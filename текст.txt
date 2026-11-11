@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Марафон желаний: PSY-версия — старт 15 декабря 2026 · 50 BYN</title>
+<meta name="description" content="Не коллаж. Карта, за которой стоит то, чего ты на самом деле хочешь. 9 дней, 7 сфер, 35 желаний с глубинным слоем. Старт 15 декабря 2026. Участие 50 BYN." />
+<style>
+  :root{
+    --bg:#0e0b14;
+    --card:#1b1428;
+    --text:#f2ecf7;
+    --muted:#b3a6c6;
+    --accent:#c084fc;
+    --accent2:#f0abfc;
+    --border:#31254a;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+    background:
+      radial-gradient(1100px 600px at 15% -10%, #3b1d5e 0%, transparent 60%),
+      radial-gradient(900px 500px at 100% 0%, #4a1f3f 0%, transparent 55%),
+      var(--bg);
+    color:var(--text);
+    line-height:1.6;
+  }
+  .wrap{max-width:1120px;margin:0 auto;padding:24px}
+  header{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:8px 0 24px}
+  .logo{font-weight:800;letter-spacing:.5px;font-size:19px}
+  .logo span{color:var(--accent)}
+  nav{display:flex;gap:18px;flex-wrap:wrap}
+  nav a{color:var(--muted);text-decoration:none;font-size:14px}
+  nav a:hover{color:var(--text)}
+  .hero{display:grid;grid-template-columns:1.25fr .75fr;gap:36px;align-items:center;padding:28px 0 56px}
+  .badge{display:inline-block;padding:6px 14px;border:1px solid var(--border);border-radius:999px;color:var(--muted);font-size:13px;margin-bottom:18px;background:rgba(255,255,255,.03)}
+  h1{font-size:46px;line-height:1.08;margin:0 0 18px;letter-spacing:-.5px}
+  h1 em{color:var(--accent);font-style:normal}
+  .lead{color:var(--muted);font-size:18px;margin:0 0 26px;max-width:54ch}
+  .cta-row{display:flex;gap:12px;flex-wrap:wrap}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:15px 24px;border-radius:14px;font-weight:700;text-decoration:none;border:1px solid transparent;cursor:pointer;font-size:16px;transition:.2s}
+  .btn-primary{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#1a0b2e}
+  .btn-primary:hover{filter:brightness(1.08);transform:translateY(-1px)}
+  .btn-ghost{background:transparent;color:var(--text);border-color:var(--border)}
+  .btn-ghost:hover{border-color:#5b4382}
+
+  /* === ТАЙМЕР === */
+  .countdown{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+  .cd-item{background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:14px;padding:10px 14px;min-width:74px;text-align:center}
+  .cd-item b{display:block;font-size:26px;line-height:1.1;color:var(--accent2);font-variant-numeric:tabular-nums;letter-spacing:-.5px}
+  .cd-item small{color:var(--muted);font-size:11.5px;text-transform:uppercase;letter-spacing:.08em}
+  .cd-label{margin:0 0 4px;color:var(--muted);font-size:13px}
+  .cd-done{display:inline-block;margin-top:22px;padding:12px 16px;border-radius:12px;background:rgba(110,231,183,.1);border:1px solid rgba(110,231,183,.4);color:#a7f3d0;font-size:14.5px}
+
+  .hero-card{background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.015));border:1px solid var(--border);border-radius:20px;padding:24px}
+  .hero-card h3{margin:0 0 10px;font-size:18px}
+  .hero-card p{margin:0;color:var(--muted);font-size:14.5px}
+  .spheres{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+  .chip{padding:7px 12px;border:1px solid var(--border);border-radius:999px;font-size:13px;color:var(--muted);background:rgba(255,255,255,.02)}
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:22px}
+  .stat{background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:14px;padding:14px}
+  .stat b{display:block;font-size:24px;color:var(--accent2)}
+  .stat small{color:var(--muted);font-size:12.5px}
+  section{padding:46px 0}
+  h2{font-size:30px;margin:0 0 8px;letter-spacing:-.3px}
+  .sub{color:var(--muted);margin:0 0 26px;max-width:62ch}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+  .feature{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:20px}
+  .feature .ic{width:38px;height:38px;border-radius:11px;display:flex;align-items:center;justify-content:center;background:rgba(192,132,252,.14);color:var(--accent2);font-weight:900;margin-bottom:12px}
+  .feature h3{margin:0 0 6px;font-size:16.5px}
+  .feature p{margin:0;color:var(--muted);font-size:14.5px}
+  .timeline{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .step{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:18px}
+  .step .day{font-size:12.5px;color:var(--accent2);letter-spacing:.06em;text-transform:uppercase;margin-bottom:6px}
+  .step h3{margin:0 0 6px;font-size:16px}
+  .step p{margin:0;color:var(--muted);font-size:14px}
+  .pricing{display:grid;grid-template-columns:1fr;gap:16px;max-width:560px}
+  .price{background:var(--card);border:1px solid var(--accent);box-shadow:0 0 0 1px rgba(192,132,252,.35), 0 18px 50px -20px rgba(192,132,252,.35);border-radius:18px;padding:26px;display:flex;flex-direction:column;gap:14px}
+  .price .tag{font-size:12.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
+  .price .amount{font-size:38px;font-weight:800;letter-spacing:-.5px}
+  .price .amount small{font-size:15px;font-weight:500;color:var(--muted)}
+  .price ul{margin:0;padding-left:18px;color:var(--muted);font-size:14.5px}
+  .price ul li{margin-bottom:6px}
+  .price .btn{margin-top:auto}
+
+  /* === ОПЛАТА === */
+  .pay{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:24px;max-width:760px}
+  .pay-head{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:14px}
+  .pay-head h3{margin:0;font-size:18px}
+  .pay .row{display:grid;grid-template-columns:180px 1fr;gap:10px 16px;font-size:14.5px}
+  .pay .row dt{color:var(--muted)}
+  .pay .row dd{margin:0;color:var(--text);word-break:break-word}
+  .pay code{background:#130e1d;border:1px solid var(--border);border-radius:6px;padding:3px 7px;font-size:13.5px;color:var(--accent2);word-break:break-all}
+  .copy-field{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+  .copy-btn{
+    display:inline-flex;align-items:center;gap:6px;
+    padding:5px 10px;border-radius:8px;border:1px solid var(--border);
+    background:rgba(255,255,255,.03);color:var(--muted);
+    font:inherit;font-size:12.5px;cursor:pointer;transition:.2s;white-space:nowrap;
+  }
+  .copy-btn:hover{border-color:var(--accent);color:var(--text)}
+  .copy-btn.copied{border-color:rgba(110,231,183,.6);color:#a7f3d0;background:rgba(110,231,183,.08)}
+  .copy-all{
+    padding:9px 14px;border-radius:10px;border:1px solid var(--border);
+    background:rgba(192,132,252,.12);color:var(--text);font:inherit;font-size:13.5px;
+    cursor:pointer;transition:.2s;font-weight:600;white-space:nowrap;
+  }
+  .copy-all:hover{border-color:var(--accent);background:rgba(192,132,252,.2)}
+  .copy-all.copied{border-color:rgba(110,231,183,.6);color:#a7f3d0;background:rgba(110,231,183,.1)}
+  .pay .hint{margin-top:14px;padding:12px;border:1px dashed var(--border);border-radius:10px;color:var(--muted);font-size:13.5px}
+  @media (max-width:560px){ .pay .row{grid-template-columns:1fr} .pay .row dt{margin-top:8px} }
+
+  .faq{display:grid;gap:12px;max-width:860px}
+  details{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:16px 18px}
+  details summary{cursor:pointer;font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:12px;align-items:center}
+  details summary::-webkit-details-marker{display:none}
+  details summary::after{content:"+";color:var(--accent2);font-weight:800;font-size:18px}
+  details[open] summary::after{content:"–"}
+  details p{color:var(--muted);margin:10px 0 0;font-size:14.5px}
+  .form{display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:680px}
+  .form input,.form textarea{width:100%;padding:13px 15px;border-radius:12px;border:1px solid var(--border);background:#130e1d;color:var(--text);font:inherit;outline:none}
+  .form textarea{grid-column:1/-1;min-height:110px;resize:vertical}
+  .form input:focus,.form textarea:focus{border-color:var(--accent)}
+  .form button{grid-column:1/-1;margin-top:4px}
+  .note{color:var(--muted);font-size:13px;margin-top:10px}
+  footer{border-top:1px solid var(--border);padding:24px 0;color:var(--muted);font-size:13px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+  .toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(20px);background:#241738;color:#f0d9ff;border:1px solid #5b3f82;padding:12px 18px;border-radius:12px;opacity:0;pointer-events:none;transition:.25s;font-size:14px;z-index:50;max-width:92vw;text-align:center}
+  .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+  @media (max-width:900px){
+    .hero{grid-template-columns:1fr}
+    h1{font-size:36px}
+    .grid3,.timeline{grid-template-columns:1fr}
+    .grid2{grid-template-columns:1fr}
+    nav{display:none}
+  }
+  @media (max-width:520px){
+    .wrap{padding:18px}
+    h1{font-size:30px}
+    .stats{grid-template-columns:1fr}
+    .form{grid-template-columns:1fr}
+    .cd-item{min-width:64px;padding:8px 10px}
+    .cd-item b{font-size:22px}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="logo">МАРАФОН <span>ЖЕЛАНИЙ</span></div>
+    <nav>
+      <a href="#about">О марафоне</a>
+      <a href="#how">Как устроен</a>
+      <a href="#pricing">Стоимость</a>
+      <a href="#payment">Оплата</a>
+      <a href="#faq">Вопросы</a>
+      <a href="#contact">Записаться</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" style="padding-top:6px">
+      <div>
+        <div class="badge">Старт 15 декабря 2026 · 9 дней · 7 сфер · 35 желаний · 50 BYN</div>
+        <h1>Не коллаж. Карта, за которой стоит то, чего ты <em>на самом деле</em> хочешь</h1>
+        <p class="lead">
+          «Марафон желаний: PSY-версия» — 9 дней, за которые вы проходите 7 сфер жизни,
+          выписываете 35 желаний и под каждым находите второй слой: «потому что мне нужно…».
+          В финале — настоящая карта с общей линией, колесом сфер и триггерами.
+        </p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="https://t.me/granyuliya" target="_blank" rel="noopener">Записаться за 50 BYN</a>
+          <a class="btn btn-ghost" href="#payment">Реквизиты оплаты</a>
+        </div>
+
+        <div id="countdownWrap">
+          <p class="cd-label" style="margin-top:24px">До старта марафона осталось:</p>
+          <div class="countdown" id="countdown" aria-live="polite">
+            <div class="cd-item"><b id="cd-d">—</b><small>дней</small></div>
+            <div class="cd-item"><b id="cd-h">—</b><small>часов</small></div>
+            <div class="cd-item"><b id="cd-m">—</b><small>минут</small></div>
+            <div class="cd-item"><b id="cd-s">—</b><small>секунд</small></div>
+          </div>
+        </div>
+        <div id="countdownDone" class="cd-done" hidden>Марафон уже стартовал — присоединиться можно в любой момент, доступ к записям сохраняется.</div>
+
+        <div class="stats">
+          <div class="stat"><b>15.12.2026</b><small>старт марафона</small></div>
+          <div class="stat"><b>16</b><small>аудиоподкастов</small></div>
+          <div class="stat"><b>50 BYN</b><small>стоимость участия</small></div>
+        </div>
+      </div>
+
+      <aside class="hero-card">
+        <h3>7 сфер, которые разберём</h3>
+        <p>Каждая сфера — пять желаний, второй слой и тест настоящести из трёх вопросов.</p>
+        <div class="spheres">
+          <span class="chip">Тело</span>
+          <span class="chip">Отношения</span>
+          <span class="chip">Деньги и дело</span>
+          <span class="chip">Дом и пространство</span>
+          <span class="chip">Смысл и душа</span>
+          <span class="chip">Радость</span>
+          <span class="chip">Сценарии и внутренний ребёнок</span>
+        </div>
+        <div style="margin-top:18px;padding:14px;border:1px dashed var(--border);border-radius:12px;color:var(--muted);font-size:13.5px">
+          Формат: закрытый Telegram-канал, задание утром, подкаст утром и вечером, чат участниц.
+        </div>
+      </aside>
+    </section>
+
+    <section id="about">
+      <h2>Почему обычная карта желаний не работает</h2>
+      <p class="sub">Потому что желание без второго слоя — это картинка. Второй слой — причина, по которой вы туда вообще хотите. Именно она превращает картинку в путь.</p>
+      <div class="grid3">
+        <div class="feature">
+          <div class="ic">1</div>
+          <h3>Нет отбора</h3>
+          <p>35 желаний — не план. Одно желание с триггером — план. Мы отсеиваем чужое тестом настоящести.</p>
+        </div>
+        <div class="feature">
+          <div class="ic">2</div>
+          <h3>Нет второго слоя</h3>
+          <p>«Хочу Мальдивы» и «хочу Мальдивы, потому что хочу чувствовать, что жизнь моя» — два разных желания. Работает второе.</p>
+        </div>
+        <div class="feature">
+          <div class="ic">3</div>
+          <h3>Нет даты и триггера</h3>
+          <p>«Когда будет настроение» — не триггер. «С 5 января по воскресеньям, 7 утра» — триггер. Без него карта умирает в январе.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="how">
+      <h2>Как устроен марафон</h2>
+      <p class="sub">9 дней: День 0 + Дни 1–8. Старт — 15 декабря 2026. Каждый день — задание, утренний и вечерний подкаст, 8 метафорических карт на выбор.</p>
+      <div class="timeline">
+        <div class="step">
+          <div class="day">День 0</div>
+          <h3>«Дверь»</h3>
+          <p>Письмо себе в прошлое — той, какой вы были 10 лет назад. Что хотели, чего побоялись. В День 8 заберёте обратно.</p>
+        </div>
+        <div class="step">
+          <div class="day">Дни 1–7</div>
+          <h3>Семь сфер</h3>
+          <p>По пять желаний в каждой сфере, второй слой под каждым, тест настоящести. Утром — подкаст, вечером — поддержка без заданий.</p>
+        </div>
+        <div class="step">
+          <div class="day">День 8</div>
+          <h3>Сборка карты</h3>
+          <p>Семь главных желаний, общая линия, колесо сфер (0–10), триггеры и физическая карта на большом листе.</p>
+        </div>
+      </div>
+
+      <div class="grid2" style="margin-top:16px">
+        <div class="feature">
+          <h3>Второй слой — обязателен</h3>
+          <p><b>Внешний:</b> Хочу… <br><b>Внутренний:</b> Потому что мне нужно… <br>Именно он отличает настоящее желание от мечты.</p>
+        </div>
+        <div class="feature">
+          <h3>Тест настоящести</h3>
+          <p>1. Радость или облегчение? Облегчение = побег. <br>2. Сделала бы, если бы никто не узнал? <br>3. Что потеряю, если не исполню?</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="pricing">
+      <h2>Стоимость участия</h2>
+      <p class="sub">Один тариф — всё включено: закрытый канал с заданиями, 16 аудиоподкастов, карта-вордокс и доступ к записям 12 месяцев. Старт 15 декабря 2026.</p>
+      <div class="pricing">
+        <div class="price">
+          <div class="tag">Участие в марафоне</div>
+          <div class="amount">50 BYN <small>/ весь марафон</small></div>
+          <ul>
+            <li>Старт — 15 декабря 2026</li>
+            <li>9 дней: День 0 + Дни 1–8</li>
+            <li>7 сфер × 5 желаний + второй слой</li>
+            <li>16 аудиоподкастов (утро и вечер)</li>
+            <li>Метафорические карты каждый день</li>
+            <li>Карта-вордокс и финальная сборка карты</li>
+            <li>Доступ к записям 12 месяцев</li>
+          </ul>
+          <a class="btn btn-primary" href="https://t.me/granyuliya" target="_blank" rel="noopener">Записаться за 50 BYN</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="payment">
+      <h2>Реквизиты для оплаты</h2>
+      <p class="sub">Переведите 50 BYN по реквизитам ниже, а затем напишите в Telegram <a href="https://t.me/granyuliya" target="_blank" rel="noopener" style="color:var(--accent2)">@granyuliya</a> — подтвердим участие и пришлём доступ в закрытый канал.</p>
+      <div class="pay">
+        <div class="pay-head">
+          <h3>Перевод по реквизитам</h3>
+          <button type="button" class="copy-all" id="copyAllBtn">Скопировать все реквизиты</button>
+        </div>
+        <dl class="row">
+          <dt>Получатель</dt>
+          <dd>
+            <div class="copy-field">
+              <span id="f-recipient">ИП ГРАНЬ ЮЛИЯ МИХАЙЛОВНА</span>
+              <button type="button" class="copy-btn" data-copy="f-recipient">Скопировать</button>
+            </div>
+          </dd>
+
+          <dt>Адрес</dt>
+          <dd>
+            <div class="copy-field">
+              <span id="f-address">Беларусь, г. Гомель, ул. Косарева, дом 13, оф. 158</span>
+              <button type="button" class="copy-btn" data-copy="f-address">Скопировать</button>
+            </div>
+          </dd>
+
+          <dt>УНП</dt>
+          <dd>
+            <div class="copy-field">
+              <code id="f-unp">491705864</code>
+              <button type="button" class="copy-btn" data-copy="f-unp">Скопировать</button>
+            </div>
+          </dd>
+
+          <dt>Счёт (BYN)</dt>
+          <dd>
+            <div class="copy-field">
+              <code id="f-iban">BY52ALFA30132H42260010270000</code>
+              <button type="button" class="copy-btn" data-copy="f-iban">Скопировать</button>
+            </div>
+          </dd>
+
+          <dt>Банк</dt>
+          <dd>
+            <div class="copy-field">
+              <span id="f-bank">ЗАО «Альфа-Банк»</span>
+              <button type="button" class="copy-btn" data-copy="f-bank">Скопировать</button>
+            </div>
+          </dd>
+
+          <dt>БИК</dt>
+          <dd>
+            <div class="copy-field">
+              <code id="f-bik">ALFABY2X</code>
+              <button type="button" class="copy-btn" data-copy="f-bik">Скопировать</button>
+            </div>
+          </dd>
+
+          <dt>Код услуги</dt>
+          <dd>
+            <div class="copy-field">
+              <span id="f-code">прочие</span>
+              <button type="button" class="copy-btn" data-copy="f-code">Скопировать</button>
+            </div>
+          </dd>
+
+          <dt>Назначение платежа</dt>
+          <dd>
+            <div class="copy-field">
+              <span id="f-purpose">консультация</span>
+              <button type="button" class="copy-btn" data-copy="f-purpose">Скопировать</button>
+            </div>
+          </dd>
+
+          <dt>Сумма</dt>
+          <dd>
+            <div class="copy-field">
+              <code id="f-amount">50 BYN</code>
+              <button type="button" class="copy-btn" data-copy="f-amount">Скопировать</button>
+            </div>
+          </dd>
+        </dl>
+        <div class="hint">
+          После оплаты обязательно напишите в Telegram <a href="https://t.me/granyuliya" target="_blank" rel="noopener" style="color:var(--accent2)">@granyuliya</a> — пришлите имя и подтверждение перевода. Так мы быстро найдём ваш платёж и откроем доступ.
+        </div>
+        <div class="cta-row" style="margin-top:16px">
+          <a class="btn btn-primary" href="https://t.me/granyuliya" target="_blank" rel="noopener">Написать @granyuliya</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq">
+      <h2>Частые вопросы</h2>
+      <div class="faq">
+        <details>
+          <summary>Когда старт и сколько длится?</summary>
+          <p>Старт — 15 декабря 2026. Длительность — 9 дней: День 0 + Дни 1–8.</p>
+        </details>
+        <details>
+          <summary>Сколько времени в день нужно?</summary>
+          <p>15–20 минут. Задание утром, подкасты по 2,5 минуты утром и вечером. Можно не сидеть весь день: утром сделали задание, вечером послушали.</p>
+        </details>
+        <details>
+          <summary>Сколько стоит участие?</summary>
+          <p>50 BYN за весь марафон. Всё включено: задания, 16 подкастов, карта-вордокс, финальная сборка и доступ к записям 12 месяцев.</p>
+        </details>
+        <details>
+          <summary>Как оплатить и записаться?</summary>
+          <p>Переведите 50 BYN по реквизитам из блока «Реквизиты для оплаты» (ИП Грань Юлия Михайловна), затем напишите в Telegram <a href="https://t.me/granyuliya" target="_blank" rel="noopener" style="color:var(--accent2)">@granyuliya</a> и пришлите подтверждение. Мы подтвердим участие и откроем доступ.</p>
+        </details>
+        <details>
+          <summary>Я уже делала карту желаний, не сработало</summary>
+          <p>Именно поэтому у нас второй слой и тест настоящести. Обычная карта — «хочу в Испанию», «хочу похудеть». Мы идём в «хочу чувствовать, что жизнь моя». И в финале — триггеры, без которых карта умирает в январе.</p>
+        </details>
+        <details>
+          <summary>Нужно ли что-то покупать?</summary>
+          <p>Нет. Всё в Telegram. Для финальной карты нужен лист и старые журналы — но это необязательно, можно сделать в блокноте.</p>
+        </details>
+        <details>
+          <summary>А если я пропущу день?</summary>
+          <p>Доступ к каналу остаётся навсегда, догонять можно в любой момент. Но честно: марафон спроектирован так, что один пропущенный день меняет всю картину. Поэтому есть вечерние подкасты — они и есть «страховка».</p>
+        </details>
+        <details>
+          <summary>Что если не понравится?</summary>
+          <p>Верну полную стоимость в течение первых суток после старта. Просто напишите в Telegram.</p>
+        </details>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Записаться</h2>
+      <p class="sub">Самый быстрый способ — написать в Telegram. Или оставьте заявку, и я свяжусь с вами. Старт 15 декабря 2026, участие 50 BYN.</p>
+      <div class="cta-row" style="margin-bottom:18px">
+        <a class="btn btn-primary" href="https://t.me/granyuliya" target="_blank" rel="noopener">Написать @granyuliya в Telegram</a>
+      </div>
+      <form class="form" id="leadForm" novalidate>
+        <input type="text" name="name" id="name" placeholder="Имя" required />
+        <input type="email" name="email" id="email" placeholder="Email" required />
+        <input type="tel" name="phone" id="phone" placeholder="Телефон (необязательно)" />
+        <input type="text" name="telegram" id="telegram" placeholder="Telegram (@username)" />
+        <textarea name="message" id="message" placeholder="Вопрос или комментарий"></textarea>
+        <button class="btn btn-primary" type="submit">Отправить заявку</button>
+        <div class="note" id="formNote">Нажимая «Отправить», вы соглашаетесь на обработку данных для ответа на заявку. Старт 15.12.2026, стоимость участия — 50 BYN.</div>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <div>© <span id="year"></span> Марафон желаний: PSY-версия. Старт 15.12.2026 · 50 BYN.</div>
+    <div>7 сфер × 5 желаний × глубинный слой</div>
+  </footer>
+</div>
+
+<div class="toast" id="toast">Скопировано в буфер обмена</div>
+
+<script>
+  /* ===== Год в футере ===== */
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  /* ===== ТАЙМЕР =====
+     Старт: 15 декабря 2026, 00:00 по местному времени пользователя.
+     Нужно фиксированное время — замените на new Date('2026-12-15T10:00:00+03:00')
+  */
+  const START = new Date(2026, 11, 15, 0, 0, 0); // 11 = декабрь (0-based)
+
+  const elD = document.getElementById('cd-d');
+  const elH = document.getElementById('cd-h');
+  const elM = document.getElementById('cd-m');
+  const elS = document.getElementById('cd-s');
+  const wrap = document.getElementById('countdownWrap');
+  const done = document.getElementById('countdownDone');
+
+  const pad = n => String(n).padStart(2, '0');
+
+  function tick(){
+    const now = new Date();
+    let diff = START - now;
+
+    if (diff <= 0){
+      wrap.hidden = true;
+      done.hidden = false;
+      return;
+    }
+
+    const d = Math.floor(diff / 86400000); diff -= d * 86400000;
+    const h = Math.floor(diff / 3600000);  diff -= h * 3600000;
+    const m = Math.floor(diff / 60000);    diff -= m * 60000;
+    const s = Math.floor(diff / 1000);
+
+    elD.textContent = pad(d);
+    elH.textContent = pad(h);
+    elM.textContent = pad(m);
+    elS.textContent = pad(s);
+  }
+
+  tick();
+  setInterval(tick, 1000);
+
+  /* ===== КОПИРОВАНИЕ ===== */
+  const toast = document.getElementById('toast');
+  function showToast(msg){
+    toast.textContent = msg;
+    toast.classList.add('show');
+    clearTimeout(window.__toastTimer);
+    window.__toastTimer = setTimeout(() => toast.classList.remove('show'), 2800);
+  }
+
+  async function copyText(text){
+    try {
+      if (navigator.clipboard && window.isSecureContext){
+        await navigator.clipboard.writeText(text);
+        return true;
+      }
+    } catch(e){ /* fallback */ }
+
+    const ta = document.createElement('textarea');
+    ta.value = text;
+    ta.setAttribute('readonly', '');
+    ta.style.position = 'fixed';
+    ta.style.left = '-9999px';
+    document.body.appendChild(ta);
+    ta.select();
+    let ok = false;
+    try { ok = document.execCommand('copy'); } catch(e){ ok = false; }
+    document.body.removeChild(ta);
+    return ok;
+  }
+
+  function flashButton(btn, ok){
+    const original = btn.dataset.label || btn.textContent;
+    btn.dataset.label = original;
+
+    if (ok){
+      btn.textContent = 'Скопировано ✓';
+      btn.classList.add('copied');
+      showToast('Скопировано в буфер обмена');
+    } else {
+      btn.textContent = 'Не удалось';
+      showToast('Не удалось скопировать — выделите вручную');
+    }
+
+    setTimeout(() => {
+      btn.textContent = original;
+      btn.classList.remove('copied');
+    }, 1800);
+  }
+
+  // Кнопки у каждого поля
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', async () => {
+      const target = document.getElementById(btn.dataset.copy);
+      if (!target) return;
+      const ok = await copyText(target.textContent.trim());
+      flashButton(btn, ok);
+    });
+  });
+
+  // Кнопка «Скопировать все реквизиты»
+  const copyAllBtn = document.getElementById('copyAllBtn');
+  copyAllBtn.addEventListener('click', async () => {
+    const get = id => (document.getElementById(id)?.textContent || '').trim();
+    const all = [
+      'Реквизиты для оплаты — Марафон желаний: PSY-версия',
+      '',
+      'Получатель: ' + get('f-recipient'),
+      'Адрес: ' + get('f-address'),
+      'УНП: ' + get('f-unp'),
+      'Счёт (BYN): ' + get('f-iban'),
+      'Банк: ' + get('f-bank'),
+      'БИК: ' + get('f-bik'),
+      'Код услуги: ' + get('f-code'),
+      'Назначение платежа: ' + get('f-purpose'),
+      'Сумма: ' + get('f-amount'),
+      '',
+      'После оплаты напишите в Telegram: https://t.me/granyuliya'
+    ].join('\n');
+
+    const ok = await copyText(all);
+    flashButton(copyAllBtn, ok);
+  });
+
+  /* ===== ФОРМА (демо) ===== */
+  const form = document.getElementById('leadForm');
+  const note = document.getElementById('formNote');
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+
+    const name = form.name.value.trim();
+    const email = form.email.value.trim();
+    const phone = form.phone.value.trim();
+
+    if (!name) { note.textContent = 'Укажите имя.'; form.name.focus(); return; }
+    const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    if (!emailOk) { note.textContent = 'Укажите корректный email.'; form.email.focus(); return; }
+
+    const payload = {
+      name, email, phone,
+      telegram: form.telegram.value.trim(),
+      message: form.message.value.trim(),
+      price: '50 BYN',
+      start: '2026-12-15',
+      ts: new Date().toISOString()
+    };
+
+    console.log('LEAD:', payload);
+    note.textContent = 'Данные прошли валидацию. В демо-режиме заявка выведена в консоль.';
+    showToast('Готово: заявка «отправлена» (демо). Для записи — @granyuliya в Telegram.');
+    form.reset();
+  });
+</script>
+</body>
+</html>
